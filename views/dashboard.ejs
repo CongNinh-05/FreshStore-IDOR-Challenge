@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>FreshStore - Dashboard</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome, <%= username %>!</h1>
+      <a class="logout" href="/logout">Logout</a>
+      <h2>Your Invoices</h2>
+      <ul>
+        <% invoices.forEach(function(inv){ %>
+        <li>
+          <a href="/view_invoice?id=<%= inv.id %>">Invoice #<%= inv.id %></a> - <%= inv.item_name %> ($<%= inv.price %>)
+        </li>
+        <% }) %>
+      </ul>
+      <p class="hint">Tip: try changing the invoice id in the URL.</p>
+    </div>
+  </body>
+</html>
