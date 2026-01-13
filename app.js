@@ -67,9 +67,9 @@ app.get("/view_invoice", requireAuth, (req, res) => {
     if (err) return res.send("Error fetching invoice");
     if (!invoice) return res.send("Invoice not found");
     // Authorization check: ensure the logged-in user owns this invoice
-    if (invoice.user_id !== req.session.userId) {
-      return res.status(403).send("Forbidden: you do not own this invoice");
-    }
+    // if (invoice.user_id !== req.session.userId) {
+    //   return res.status(403).send("Forbidden: you do not own this invoice");
+    // }
     res.render("invoice", { invoice });
   });
 });
@@ -77,3 +77,4 @@ app.get("/view_invoice", requireAuth, (req, res) => {
 app.listen(PORT, () => {
   console.log(`FreshStore IDOR challenge running on http://localhost:${PORT}`);
 });
+
